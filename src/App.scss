@@ -1,0 +1,43 @@
+@use "./Styles/Global.scss" as *;
+
+.app{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(-45deg, rgb(0, 0, 0), rgb(27, 26, 26), rgb(0, 19, 3), rgb(14, 30, 23));
+	background-size: 500% 500%;
+	animation: gradient 13s ease infinite;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    &__t{
+        font-size: 5rem;
+        margin-top: 1.5rem;
+        color: whitesmoke;
+        text-align: center;
+    }
+    &__ht{
+        margin-top: 2rem;
+        color: whitesmoke;
+        text-align: center;
+    }
+    &__hh{
+        margin-top: 1rem;
+        color: whitesmoke;
+        text-align: center;
+        width: 50rem;
+        align-self: center;
+    }
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 90% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

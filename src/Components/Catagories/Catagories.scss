@@ -1,0 +1,110 @@
+.options{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.catO{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.cat{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    margin: 1rem 1.5rem;
+
+    &__title{
+        text-align: center;
+        color: whitesmoke;
+    }
+    &__wbutton{
+        width: 10rem;
+        background-color: transparent;
+        color: whitesmoke;
+        border: .25rem solid whitesmoke;
+        border-radius: 4px;
+        margin: .25rem;
+        &:hover{
+            border: .25rem solid red;
+        }
+        &:focus{
+            background-color: green;
+        }
+    }
+    &__abutton{
+        width: 10rem;
+        background-color: transparent;
+        color: whitesmoke;
+        border: .25rem solid whitesmoke;
+        border-radius: 4px;
+        margin: .25rem;
+        &:hover{
+            border: .25rem solid red;
+        }
+        &:focus{
+            background-color: green;
+        }
+    }
+    &__fbutton{
+        width: 10rem;
+        background-color: transparent;
+        color: whitesmoke;
+        border: .25rem solid whitesmoke;
+        border-radius: 4px;
+        margin: .25rem;
+        &:hover{
+            border: .25rem solid red;
+        }
+        &:focus{
+            background-color: green;
+        }
+    }
+    &__selected{
+        color: whitesmoke;
+        background-color: rgba(184, 184, 184, .2);
+        padding: 4px;
+        border-radius: 4px;
+        text-align: center;
+        align-self: center;
+    }
+}
+.button-div{
+    display: flex;
+    justify-content: center;
+
+    &__sub{
+        align-self: center;
+        width: 10rem;
+        font-size: 3rem;
+        background-color: transparent;
+        color: whitesmoke;
+        border: .25rem solid whitesmoke;
+        border-radius: 10px;
+        margin: .25rem;
+    
+        &:hover{
+            border: .25rem solid rgb(4, 223, 4);    }
+    }
+    &__res{
+        align-self: center;
+        width: 10rem;
+        font-size: 3rem;
+        background-color: transparent;
+        color: whitesmoke;
+        border: .25rem solid whitesmoke;
+        border-radius: 10px;
+        margin: .25rem;
+
+        &:hover{
+            border: .25rem solid rgb(249, 0, 0);    
+        }
+    }
+}
+
+.total{
+    color: whitesmoke;
+    font-size: 3rem;
+    align-self: center;
+}
