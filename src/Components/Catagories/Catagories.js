@@ -3,24 +3,34 @@ import React, { useState } from 'react';
 
 
 function Catagories() {
-  
-    const [total, setTotal] = useState("");
-    const [count , setCount] = useState(null)
+
+    // Variables for game
+    // var w = 0
+    // var a = 0
+    // var f = 0
+    // var count = w + a + f
+
     // names for selected itmes
     const [wName, setWName] = useState("")
     const [aName, setAName] = useState("")
     const [fName, setFName] = useState("")
+
     // values for the catagory items
     const [weapon, setWeapon] = useState(null)
     const [armor, setArmor] = useState(null)
     const [food, setFood] = useState(null)
 
-    // Logic for seeing the players outcome bases on total
-    function check(){
-      setCount(weapon + armor + food)
+    // state for total and count
+    const [total, setTotal] = useState("");
+    // const [count , setCount] = useState(weapon + armor + food)
 
+    // Logic for seeing the players outcome bases on total
+    const count = weapon + armor + food
+    function check(){
+      // console.log("Count: "+""+count)
+      
       if(count <= 5){
-        setTotal("you barely made it 😖")
+        setTotal("You're Zombie Food 😖")
       }else if(count <= 7){
         setTotal("You lived! 🥳")
       }else if(count <= 9){
@@ -32,7 +42,6 @@ function Catagories() {
     //This resets the total and count state for a new game
     function reset (){
       setTotal("")
-      setCount(null)
       setWName("")
       setAName("")
       setFName("")
@@ -42,14 +51,19 @@ function Catagories() {
     function wselect(numToAdd, WeaponName) {
       setWeapon(numToAdd)
       setWName(WeaponName)
+      // console.log(w)
     }
+
     function aselect(numToAdd, armorName) {
       setArmor(numToAdd)
       setAName(armorName)
+      // console.log(a)
     }
+
     function fselect(numToAdd, foodName) {
       setFood(numToAdd)
       setFName(foodName)
+      // console.log(f)
     }
 
 
@@ -58,7 +72,7 @@ function Catagories() {
       <div className="catO">
         <section className='cat'>
             <h3 className='cat__title'>Weapons</h3>
-            <button className='cat__wbutton' onClick={() => wselect(9, "Bat")}>Bat</button>
+            <button className='cat__wbutton' onClick={() => wselect(3, "Bat")}>Bat</button>
             <button className='cat__wbutton' onClick={() => wselect(5, "Gun")}>Gun</button>
             <button className='cat__wbutton' onClick={() => wselect(2, "Glue")}>Glue</button>
             <h2 className="cat__selected">You selected: {wName}</h2>
@@ -72,7 +86,7 @@ function Catagories() {
         </section>
         <section className='cat'>
             <h3 className='cat__title'>Food</h3>
-            <button className='cat__fbutton' onClick={() => fselect(1, "Slurp")}>Slurpy</button>
+            <button className='cat__fbutton' onClick={() => fselect(3, "Slurp")}>Slurpy</button>
             <button className='cat__fbutton' onClick={() => fselect(2, "Cherry Soda")}>Cherry Soda</button>
             <button className='cat__fbutton' onClick={() => fselect(9, "Spicy Gum")}>Spicy Gum</button>
             <h2 className="cat__selected">You selected: {fName}</h2>
