@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,700;1,900&display=swap');
+
 .options{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+
 }
 .catO{
     display: flex;
@@ -13,7 +17,7 @@
     flex-direction: column;
     justify-content: center; 
     align-items: center;
-    margin: 1rem 1.5rem;
+    margin: .5rem 1.5rem;
 
     &__title{
         text-align: center;
@@ -28,6 +32,7 @@
         margin: .25rem;
         &:hover{
             border: .25rem solid red;
+            cursor: pointer;
         }
         &:focus{
             background-color: green;
@@ -42,6 +47,7 @@
         margin: .25rem;
         &:hover{
             border: .25rem solid red;
+            cursor: pointer;
         }
         &:focus{
             background-color: green;
@@ -56,6 +62,7 @@
         margin: .25rem;
         &:hover{
             border: .25rem solid red;
+            cursor: pointer;
         }
         &:focus{
             background-color: green;
@@ -63,7 +70,7 @@
     }
     &__selected{
         color: whitesmoke;
-        background-color: rgba(184, 184, 184, .2);
+        // background-color: rgba(184, 184, 184, .2);
         padding: 4px;
         border-radius: 4px;
         text-align: center;
@@ -85,7 +92,8 @@
         margin: .25rem;
     
         &:hover{
-            border: .25rem solid rgb(4, 223, 4);    }
+            border: .25rem solid rgb(4, 223, 4);  
+            cursor: pointer;  }
     }
     &__res{
         align-self: center;
@@ -98,13 +106,16 @@
         margin: .25rem;
 
         &:hover{
-            border: .25rem solid rgb(249, 0, 0);    
+            border: .25rem solid rgb(249, 0, 0);  
+            cursor: pointer;  
         }
     }
 }
 
 .total{
     color: whitesmoke;
-    font-size: 3rem;
+    text-align: center;
+    font-size: 2rem;
+    width: 50%;
     align-self: center;
 }
