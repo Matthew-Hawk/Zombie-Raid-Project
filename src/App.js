@@ -1,18 +1,67 @@
-import "./App.scss"
-import Catagories from "./Components/Catagories/Catagories"
-
+import './App.css';
+import React, { useState, useEffect } from "react";
 function App() {
 
+  const [counter, setCounter] = useState(0);
+  const [result, setResult] = useState('Have not left for adventure yet');
+
+  const handleClick1 = () => {
+    setCounter(prevCounter => prevCounter + 1);
+  };
+
+  const handleClick2 = () => {
+    setCounter(prevCounter => prevCounter - 1);
+  };
+
+  const handleClick3 = () => {
+    setCounter(0);
+    setResult('Have not left for adventure yet');
+  };
+
+  const handleCheckCounter = () => {
+    checkCounter(counter);
+  };
+
+  function checkCounter(counterValue) {
+    const limit = 5;
+    if (counterValue >= limit) {
+      setResult("You lived");
+    } else {
+      setResult("You died");
+    }
+  }
+
   return (
-    <div className="app">
-     <h1 className="app__t">Z-Run</h1>
-     <h2 className="app__ht">How to play</h2>
-     <h3 className="app__hh">Hello, and welcome to Z-Run! the way this works is very simple, you chose 1 option from each column and press the run-it button at the end to see if you made it out alive. Seems easy enough? Then prove it! </h3>
-     <Catagories />
-     <footer className="cc">
-      <a href="https://github.com/Matthew-Hawk" className="cc__link">Created by: Matthew Hawkins</a>
-      <p> © all rights reserved</p>
-     </footer>
+    <div className="App">
+      <header className="App-header">
+        <h1 className='Header-title'>TRIALS</h1>
+      </header>
+      <h2 className='App-Counter'>{counter}</h2>
+      <h2 className='App-Counter'>{result}</h2>
+      <body className ='App-Body'>
+        <div className='Body-bullet-buttons'>
+          <button 
+            type="button" 
+            className='Body-Button' 
+            onClick={handleClick1}
+            >Add 1</button>
+          <button 
+            type="button" 
+            className='Body-Button' 
+            onClick={handleClick2}
+            >Subtract 1</button>
+        </div>
+      <button 
+        type="button" 
+        className='Body-Button' 
+        onClick={handleClick3}
+        >Reset</button>
+      <button 
+        type="button" 
+        className='Body-Button'
+        onClick={handleCheckCounter} 
+        >Run Adventure</button>
+      </body>
     </div>
   );
 }
