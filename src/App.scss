@@ -1,58 +1,315 @@
 .App {
-    text-align: center;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-      background-size: 400% 400%;
-      animation: gradient 15s ease infinite;
-      height: 100vh;
+  text-align: center;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  min-height: 100vh;
+  padding-bottom: 2rem;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
   }
-  @keyframes gradient {
-      0% {
-          background-position: 0% 50%;
-      }
-      50% {
-          background-position: 100% 50%;
-      }
-      100% {
-          background-position: 0% 50%;
-      }
+  50% {
+    background-position: 100% 50%;
   }
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.App-header {
+  min-height: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding: 2rem 0;
+}
+
+.Header-title {
+  font-size: 4rem;
+  margin: 0;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.2em;
+}
+
+.Header-subtitle {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0 0;
+  opacity: 0.9;
+}
+
+.App-body {
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1rem;
+}
+
+.game-phase {
+  width: 100%;
+  max-width: 1200px;
+  color: white;
+}
+
+.game-phase h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.selection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+.selection-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.selection-card:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.selection-card.selected {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: white;
+  border-width: 4px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.selection-card h3 {
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem 0;
+  color: white;
+}
+
+.selection-card p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  opacity: 0.9;
+}
+
+.stats, .difficulty {
+  margin-top: 1rem;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.stats div {
+  margin: 0.3rem 0;
+}
+
+.difficulty {
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+.raid-preview {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 500px;
+  backdrop-filter: blur(10px);
+}
+
+.raid-preview h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.preview-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.success-chance {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ffcc00;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.Body-Button, .back-button, .raid-button, .reset-button {
+  margin: 0.5rem;
+  font-size: 1.2rem;
+  padding: 12px 24px;
+  border-width: 3px;
+  border-radius: 8px;
+  border-color: white;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-style: solid;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.Body-Button:hover, .back-button:hover, .raid-button:hover, .reset-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.raid-button {
+  background-color: rgba(76, 175, 80, 0.3);
+  border-color: #4caf50;
+  font-size: 1.3rem;
+  padding: 15px 30px;
+}
+
+.raid-button:hover {
+  background-color: rgba(76, 175, 80, 0.5);
+}
+
+.reset-button {
+  background-color: rgba(244, 67, 54, 0.3);
+  border-color: #f44336;
+}
+
+.reset-button:hover {
+  background-color: rgba(244, 67, 54, 0.5);
+}
+
+.loading {
+  font-size: 2rem;
+  margin: 3rem 0;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.result-box {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 700px;
+  backdrop-filter: blur(10px);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.result-box.success {
+  border-color: #4caf50;
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
+}
+
+.result-box.failure {
+  border-color: #f44336;
+  box-shadow: 0 0 20px rgba(244, 67, 54, 0.5);
+}
+
+.log-line {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.progress {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 500px;
+  backdrop-filter: blur(10px);
+}
+
+.progress h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.formula-progress {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50, #8bc34a);
+  transition: width 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.progress div {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .Header-title {
+    font-size: 2.5rem;
   }
   
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
+  .selection-grid {
+    grid-template-columns: 1fr;
+    padding: 0;
   }
   
-  .App-header {
-    min-height: 30vh;
-    display: flex;
+  .game-phase h2 {
+    font-size: 2rem;
+  }
+  
+  .button-group {
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-  .App-Counter {
-    color: white;
-    font-size: 3rem;
-  }
-  .App-Body {
-    width: 100%;
-    height:70vh;
   }
   
-  .Body-Button{
-    margin: 3rem;
-    font-size: 1.3rem;
-    padding: 8px;
-    border-width: 2.8px;
-    border-radius: 5px;
-    border-color: white;
-    color: white;
-    background-color: transparent;
-    border-style: solid;
+  .Body-Button, .back-button, .raid-button, .reset-button {
+    width: 80%;
+    max-width: 300px;
   }
+}
